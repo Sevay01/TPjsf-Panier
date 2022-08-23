@@ -63,8 +63,10 @@ public class HelloBean implements Serializable {
 	
 	public String page() {
 		
-		System.out.println(pageId);
-		return "/pages/about?faces-redirect=true";
+	
+		return this.pageId;
+		
+		//si j'ai 
 	}
 	
 

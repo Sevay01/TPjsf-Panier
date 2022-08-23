@@ -18,6 +18,23 @@
    			<h:outputText value="#{helloBean.nom}" />
    			
    			<h:outputText value="#{autreBean.message}"/>
+   			<h:form>
+   				Login : <h:inputText value="#{loginBean.login}" />
+   				<h:commandButton value="Login" actionListener="#{loginBean.loggin}">
+   					<f:ajax render="panel" execute="@form"/>
+   				
+   				</h:commandButton>
+   			</h:form>
+   			
+   			<h:panelGroup id="panel">
+   				<h:panelGroup rendered="#{loginBean.loginIs}">
+   					<h:outputText value="#{loginBean.login}"/>
+   				</h:panelGroup>
+   				<h:panelGroup rendered="#{not loginBean.loginIs}">
+   					<strong>Vous n'êtes pas loggé</strong>
+   				</h:panelGroup>
+   			</h:panelGroup>
+   			
    			
    			<h:form>
    			
@@ -28,7 +45,7 @@
    				<br/>
    				
    				
-   				<h:commandButton action="#{helloBean.returnResult}" value="Valider mon post" />
+   				<h:commandButton action="#{helloBean.page}" value="Valider mon post" />
    			
    			
    			</h:form>
