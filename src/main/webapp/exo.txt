@@ -1,0 +1,12 @@
+CREER une application JSF
+Avec 3 pages
+
+-> index (affiche un message de bienvenu définit dans une bean (request)
+-> login
+-> about
+
+(3 mangedbean - une pour l'index / une pour l'utilisateur / une pour la navigation)
+
+Une navigation sur chaque page
+Login la personne peut rentrer un login et un mot de passe
+et si vous naviguer dans about on doit etre capable d'afficher le login de la personne

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html 
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      >
+      <!-- Commentaire HTML  -->
+    <f:view> 
+        <h:head>
+           <h:outputStylesheet name="css/style.css" />
+           
+        </h:head>
+        <h:body>
+            <h1><h:outputText value="Hello, the world" /></h1>
+   			<hr/>
+   			
+   			<h:outputText value="#{helloBean.nom}" />
+   			
+   			<h:outputText value="#{autreBean.message}"/>
+   			
+   			<h:form>
+   			
+   				Nom : <h:inputText value="#{helloBean.nom}" />
+   				<br/>
+   				Prenom : <h:inputText value="#{helloBean.prenom}" />
+   				
+   				<br/>
+   				
+   				
+   				<h:commandButton action="#{helloBean.returnResult}" value="Valider mon post" />
+   			
+   			
+   			</h:form>
+   			
+   			
+   			<nav>
+   				<h:form>
+   					<h:commandLink action="#{helloBean.page}" value="admin">
+   						<f:param name="pageId" value ="admin"></f:param>
+   					
+   					</h:commandLink>
+   					<h:commandLink action="#{helloBean.page}" value="About">
+   						<f:param name="pageId" value ="about"></f:param>
+   					
+   					</h:commandLink>
+   				</h:form>
+   			</nav>
+   			
+   			
+          
+        </h:body>
+    </f:view>
+</html>
