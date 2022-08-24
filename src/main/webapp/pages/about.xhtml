@@ -6,13 +6,20 @@
                 >
                 
        
-                <ui:define name="titre">
-                	<h:outputText value="Page About" />
-                </ui:define>
-              
+               
                 
                 <ui:define name="main">
-	              Super !
+                	
+	             	<h2 class="mt-5">Merci de votre confiance !</h2>
+	             	<p class="mt-5 mb-5">Votre commande vous sera livrée dans les plus brefs délais.</p>
+	             	<h:form>
+			   					<h:commandButton action="#{helloBean.page}" value="Retour" styleClass="btn btn-success ">
+			   						<f:param name="pageId" value ="admin"></f:param>
+			   					
+			   					</h:commandButton>
+			   					
+		   				
+	   					</h:form>
                 </ui:define>
 </ui:composition>
 

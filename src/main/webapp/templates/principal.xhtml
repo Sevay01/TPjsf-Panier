@@ -13,41 +13,41 @@
         </h:head>
         <h:body>
 
-            <header class="jumbotron text-center">
-            	<section class="container">
-            		<article class="row">
-            			<h1><ui:insert name="titre"/></h1>
-            		</article>
-            	</section>
-            </header>
+            <div class="jumbotron jumbotron-fluid">
+				  <div class="container">
+				    <h1 class="display-4">Petit Dej</h1>
+				    <p class="lead">Le meilleur site pour commander vos petits déjeuners livrés à domicile.</p>
+				  </div>
+				</div>
             <div class="container">
             	<div class="row">
 		   			<nav class="navbar col-md-12">
 		   				<h:form>
-			   					<h:commandLink action="#{helloBean.page}" value="admin">
+			   					<h:commandButton action="#{helloBean.page}" value="index" styleClass="btn btn-outline-dark mx-2">
 			   						<f:param name="pageId" value ="admin"></f:param>
 			   					
-			   					</h:commandLink>
-			   					<h:commandLink action="#{helloBean.page}" value="About">
-			   						<f:param name="pageId" value ="about"></f:param>
-			   					</h:commandLink>
+			   					</h:commandButton>
+			   					<h:commandButton action="#{helloBean.page}" value="pannier" styleClass="btn btn-outline-dark  mx-2">
+			   						<f:param name="pageId" value ="pannier"></f:param>
+			   					</h:commandButton>
 		   				
 	   					</h:form>
                 
 		   			</nav>
 	   			</div>
 	   			<div class="row">
-	   				<aside class="col-md-4">
-	   					PUB sur le côté
-	   				
-	   				</aside>
-		   			<main class="col-md-8">
+	   			<main class="col-md-8">
 		   				<ui:insert name="main" />
 		   			</main>
+	   				<aside class="col-md-4">
+	   					<h:graphicImage url="/resources/pdj.jpg"  />
+	   				
+	   				</aside>
+		   			
 	   			</div>
 	   		</div>
    			
-   			<footer class="jumbotron text-center">
+   			<footer class="jumbotron text-center mt-5">
    				<div class="container">
    					<div class="col-md-12">
    						<h:outputText value="(c) M2i - formation JSF" />

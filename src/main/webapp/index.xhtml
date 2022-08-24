@@ -6,58 +6,57 @@
                 >
                 
        
-                <ui:define name="titre">
-                	<h:outputText value="Hello, the world" />
-                </ui:define>
+              
               
                 
                 <ui:define name="main">
-	                <h:outputText value="#{helloBean.nom}" />
-	   			
-		   			<fieldset>
-		   				<legend>Login</legend>
-		   				<h:panelGroup id="panel">
-			   				<h:panelGroup rendered="#{loginBean.loginIs}">
-			   					<h:outputText value="#{loginBean.login}"/>
-			   				</h:panelGroup>
-			   				<h:panelGroup rendered="#{not loginBean.loginIs}">
-			   					<strong>Vous n'êtes pas loggé</strong>
-			   				</h:panelGroup>
-			   			</h:panelGroup>
-			   			<hr/>
-		   				
-		   				<h:form>
-			   				<h:panelGrid columns="2">
-			   					<h:outputLabel for="" value="Login" />
-			   					<h:inputText  value="#{loginBean.login}" />
-			   				</h:panelGrid>
-			   				<h:commandButton value="Login" actionListener="#{loginBean.loggin}">
-			   					<f:ajax render="panel" execute="@form"/>
-			   				</h:commandButton>
-		   				</h:form>
-		   			</fieldset>
-		   			
-	   			
-	   			
+	     
 		   			<h:form>
-						<h:panelGroup>   			
-			   				<h:panelGrid columns="2">
+						<h:panelGroup>   	
+							<h2><h:outputText value="Faites votre choix !" /></h2>	
+							<br></br><br></br>	
+							
+							
+			   			
+			   					<table class="table table-hover   ">
+			   					 <thead class="thead-dark  ">
+									    <tr>
+									      <th scope="col">Produit</th>
+									      <th scope="col">Description</th>
+									      <th scope="col">Prix</th>
+									      <th scope="col">Ajouter au pannier</th>
+									    </tr>
+									  </thead>
+				   					
 			   					
-			   					<f:facet name="header">
-			   						<h:outputText value="Login" />
-			   					</f:facet>
-			   					
-			   					<h:outputLabel for="inpNom" value="Nom :" />
-			   					<h:inputText id="inpNom" value="#{helloBean.nom}" />
-			   					<h:outputLabel for="inpPrenom" value="Prenom :" />
-			   					<h:inputText id="inpPrenom" value="#{helloBean.prenom}" />
+			   					<tbody>
+    						
+			   					<ui:repeat var="valeur" value="#{productBean.productList}">
+				   					<tr>
+					   					<th>
+					   						<strong><h:outputText value="#{valeur.getNom()}"/></strong>
+					   					</th>
+					   					
+					   					<td>
+					   						<h:outputText value="#{valeur.getDescription()}"/>
+					   					</td>
+					   					
+					   					<td>
+					   						<strong><h:outputText value="#{valeur.getPrix()} €"/></strong>
+					   					</td>
+					   					<td class="text-center">
+					   						<h:commandButton action="#{panierBean.addProduct(valeur)}" value=" +1 " styleClass="btn btn-success"></h:commandButton>
+					   					</td>
+				   					</tr>
+			   					</ui:repeat>
+			   					</tbody>
+			   			
+			   		
+			   				</table>
+			   				<h:commandButton action="#{helloBean.page}" value="Voir le pannier"  styleClass="btn btn-outline-dark" >
+			   					<f:param name="pageId" value="pannier"></f:param>
+			   				</h:commandButton>
 			   				
-			   					<f:facet name="footer">
-			   						<h:outputText value="(c) développé avec amour"/>
-			   					</f:facet>
-			   				
-			   				</h:panelGrid>	
-			   				<h:commandButton action="#{helloBean.page}" value="Valider mon post" />
 		   					
 		   				
 		   				</h:panelGroup>
@@ -65,9 +64,7 @@
 		   			</h:form>
 	   			
 		   			<ul>
-			   			<ui:repeat var="valeur" value="#{helloBean.maListe}">
-			   				<li><h:outputText value="#{valeur}" /></li>
-			   			</ui:repeat>
+			   			
 		   			</ul>
 
                 </ui:define>

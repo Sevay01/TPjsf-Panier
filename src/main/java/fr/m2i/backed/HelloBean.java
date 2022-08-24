@@ -84,8 +84,7 @@ public class HelloBean implements Serializable {
 		
 	
 		return this.pageId;
-		
-		//si j'ai 
+	
 	}
 	
 
