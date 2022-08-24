@@ -10,10 +10,10 @@
                 
                 <ui:define name="main">
                 	
-	             	<h2 class="mt-5">Merci de votre confiance !</h2>
-	             	<p class="mt-5 mb-5">Votre commande vous sera livrée dans les plus brefs délais.</p>
+	             	<h2 class="mt-5">#{bundle.Merci}</h2>
+	             	<p class="mt-5 mb-5">#{bundle.status}</p>
 	             	<h:form>
-			   					<h:commandButton action="#{helloBean.page}" value="Retour" styleClass="btn btn-success ">
+			   					<h:commandButton action="#{helloBean.page}" value="#{bundle.retour}" styleClass="btn btn-success ">
 			   						<f:param name="pageId" value ="admin"></f:param>
 			   					
 			   					</h:commandButton>

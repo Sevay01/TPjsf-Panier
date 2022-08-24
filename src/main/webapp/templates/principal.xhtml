@@ -10,31 +10,30 @@
         <h:head>
         	<link rel="stylesheet" type="text/css"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+              <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            <f:loadBundle var="bundle" basename="global"/>
         </h:head>
         <h:body>
 
             <div class="jumbotron jumbotron-fluid">
-				  <div class="container">
+				<div class="container">
 				    <h1 class="display-4">Petit Dej</h1>
-				    <p class="lead">Le meilleur site pour commander vos petits déjeuners livrés à domicile.</p>
-				  </div>
-				</div>
-            <div class="container">
-            	<div class="row">
-		   			<nav class="navbar col-md-12">
-		   				<h:form>
-			   					<h:commandButton action="#{helloBean.page}" value="index" styleClass="btn btn-outline-dark mx-2">
-			   						<f:param name="pageId" value ="admin"></f:param>
-			   					
-			   					</h:commandButton>
-			   					<h:commandButton action="#{helloBean.page}" value="pannier" styleClass="btn btn-outline-dark  mx-2">
-			   						<f:param name="pageId" value ="pannier"></f:param>
-			   					</h:commandButton>
-		   				
-	   					</h:form>
-                
-		   			</nav>
+				    	<p class="lead"><em>#{bundle.greeting}</em></p>
+		 				  <hr class="my-4"></hr>
+						  <p class="lead">
+		    			  	<h:form>
+					   			<h:commandButton action="#{helloBean.page}" value="Menu" styleClass="btn btn-outline-dark btn-lg mx-2 mt-1">
+			   						<f:param name="pageId" value ="admin"></f:param>	
+			   					</h:commandButton>	
+	   						</h:form>
+  				  		 </p>
 	   			</div>
+			</div>
+				
+            <div class="container">
+            	
 	   			<div class="row">
 	   			<main class="col-md-8">
 		   				<ui:insert name="main" />

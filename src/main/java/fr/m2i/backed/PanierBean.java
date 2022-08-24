@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import fr.m2i.models.Products;
@@ -104,11 +106,13 @@ public class PanierBean implements Serializable {
 	
 	
 	public Integer prixTotal(){
-		Integer total =0;
+		Integer total = 0;
 		for (Products article:pannierList) {
-			total += article.getPrix()* article.getQuantity();
+			total += article.getPrix() * article.getQuantity();
 		}
 		return total;
 	}
+	
+	
 
 }

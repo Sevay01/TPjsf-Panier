@@ -13,16 +13,17 @@
 	     
 		   			<h:form>
 					  	
-							<h2><h:outputText value="Votre pannier" /></h2>	
+							<h2><h:outputText value="#{bundle.votrePannier}" /></h2>	
+							
 							<br></br><br></br>	
 				   			<table class="table table-hover   ">
 			   					 <thead class="thead-dark  ">
 										    <tr>
-										      <th scope="col">Produit</th>
+										      <th scope="col">#{bundle.Produit}</th>
 										      <th scope="col">Description</th>
-										      <th scope="col">Prix</th>
-										      <th scope="col">Quantitée</th>
-										      <th scope="col">Prix total</th>
+										      <th scope="col">#{bundle.Prix}</th>
+										      <th scope="col">#{bundle.quantit}</th>
+										      <th scope="col">Total</th>
 										      <th scope="col">Modification</th>
 										    </tr>
 										  </thead>
@@ -57,28 +58,24 @@
 			   		
 			   				</table>
 			   				
-		   					 <strong><h:outputText value="Total du pannier #{panierBean.prixTotal()} €"/></strong>
+		   					 <strong><h:outputText value="Total : #{panierBean.prixTotal()} €"/></strong>
 		   						<br></br>
 		   		
 		   				<br></br>
-		   				<h:commandButton action="#{panierBean.destroyPannier()}" value="Supprimer mon panier" styleClass="btn btn-warning"></h:commandButton>
+		   				<h:commandButton action="#{panierBean.destroyPannier()}" value="#{bundle.SupprimerPannier}" styleClass="btn btn-danger"></h:commandButton>
 		   				
-			   					<h:commandButton action="#{helloBean.page}" value="Commander" styleClass="btn btn-success mx-2">
+			   					<h:commandButton action="#{helloBean.page}" value="#{bundle.Commander}" styleClass="btn btn-success mx-2">
 			   						<f:param name="pageId" value ="about"></f:param>
 			   					
 			   					</h:commandButton>
 			   					
-	   					
+	   									
+			   		
+		
+        
 		   			</h:form>
 		   			
-			   						
-		   			
-	   			
-		   			<ul>
-			   			
-		   			</ul>
-
-                </ui:define>
+			   		        </ui:define>
 </ui:composition>
 
 
