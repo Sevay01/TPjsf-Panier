@@ -1,71 +1,83 @@
-<!DOCTYPE html>
-<html 
-	  xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:f="http://xmlns.jcp.org/jsf/core" 
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      >
-      <!-- Commentaire HTML  -->
-    <f:view> 
-        <h:head>
-           <h:outputStylesheet name="css/style.css" />
-           
-        </h:head>
-        <h:body>
-            <h1><h:outputText value="Hello, the world" /></h1>
-   			<hr/>
-   			
-   			<h:outputText value="#{helloBean.nom}" />
-   			
-   			<h:outputText value="#{autreBean.message}"/>
-   			<h:form>
-   				Login : <h:inputText value="#{loginBean.login}" />
-   				<h:commandButton value="Login" actionListener="#{loginBean.loggin}">
-   					<f:ajax render="panel" execute="@form"/>
-   				
-   				</h:commandButton>
-   			</h:form>
-   			
-   			<h:panelGroup id="panel">
-   				<h:panelGroup rendered="#{loginBean.loginIs}">
-   					<h:outputText value="#{loginBean.login}"/>
-   				</h:panelGroup>
-   				<h:panelGroup rendered="#{not loginBean.loginIs}">
-   					<strong>Vous n'êtes pas loggé</strong>
-   				</h:panelGroup>
-   			</h:panelGroup>
-   			
-   			
-   			<h:form>
-   			
-   				Nom : <h:inputText value="#{helloBean.nom}" />
-   				<br/>
-   				Prenom : <h:inputText value="#{helloBean.prenom}" />
-   				
-   				<br/>
-   				
-   				
-   				<h:commandButton action="#{helloBean.page}" value="Valider mon post" />
-   			
-   			
-   			</h:form>
-   			
-   			
-   			<nav>
-   				<h:form>
-   					<h:commandLink action="#{helloBean.page}" value="admin">
-   						<f:param name="pageId" value ="admin"></f:param>
-   					
-   					</h:commandLink>
-   					<h:commandLink action="#{helloBean.page}" value="About">
-   						<f:param name="pageId" value ="about"></f:param>
-   					
-   					</h:commandLink>
-   				</h:form>
-   			</nav>
-   			
-   			
-          
-        </h:body>
-    </f:view>
-</html>
+<ui:composition template="./templates/principal.xhtml"
+				xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                >
+                
+       
+                <ui:define name="titre">
+                	<h:outputText value="Hello, the world" />
+                </ui:define>
+              
+                
+                <ui:define name="main">
+	                <h:outputText value="#{helloBean.nom}" />
+	   			
+		   			<fieldset>
+		   				<legend>Login</legend>
+		   				<h:panelGroup id="panel">
+			   				<h:panelGroup rendered="#{loginBean.loginIs}">
+			   					<h:outputText value="#{loginBean.login}"/>
+			   				</h:panelGroup>
+			   				<h:panelGroup rendered="#{not loginBean.loginIs}">
+			   					<strong>Vous n'êtes pas loggé</strong>
+			   				</h:panelGroup>
+			   			</h:panelGroup>
+			   			<hr/>
+		   				
+		   				<h:form>
+			   				<h:panelGrid columns="2">
+			   					<h:outputLabel for="" value="Login" />
+			   					<h:inputText  value="#{loginBean.login}" />
+			   				</h:panelGrid>
+			   				<h:commandButton value="Login" actionListener="#{loginBean.loggin}">
+			   					<f:ajax render="panel" execute="@form"/>
+			   				</h:commandButton>
+		   				</h:form>
+		   			</fieldset>
+		   			
+	   			
+	   			
+		   			<h:form>
+						<h:panelGroup>   			
+			   				<h:panelGrid columns="2">
+			   					
+			   					<f:facet name="header">
+			   						<h:outputText value="Login" />
+			   					</f:facet>
+			   					
+			   					<h:outputLabel for="inpNom" value="Nom :" />
+			   					<h:inputText id="inpNom" value="#{helloBean.nom}" />
+			   					<h:outputLabel for="inpPrenom" value="Prenom :" />
+			   					<h:inputText id="inpPrenom" value="#{helloBean.prenom}" />
+			   				
+			   					<f:facet name="footer">
+			   						<h:outputText value="(c) développé avec amour"/>
+			   					</f:facet>
+			   				
+			   				</h:panelGrid>	
+			   				<h:commandButton action="#{helloBean.page}" value="Valider mon post" />
+		   					
+		   				
+		   				</h:panelGroup>
+		   			
+		   			</h:form>
+	   			
+		   			<ul>
+			   			<ui:repeat var="valeur" value="#{helloBean.maListe}">
+			   				<li><h:outputText value="#{valeur}" /></li>
+			   			</ui:repeat>
+		   			</ul>
+
+                </ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+

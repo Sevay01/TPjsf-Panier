@@ -47,7 +47,7 @@ public class LoginFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse res = (HttpServletResponse)response;
 		HttpServletRequest req = (HttpServletRequest)request;
- 		System.out.println(this.login.getLogin());
+ 	
 		
 		if(!this.login.getLogin().equals("admin"))
 			res.sendRedirect(req.getContextPath()+"/index.xhtml");

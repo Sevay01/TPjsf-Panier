@@ -1,6 +1,8 @@
 package fr.m2i.backed;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,6 +17,8 @@ public class HelloBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private List<String> maListe;
+	
 	@Inject
 	private AutreBean ab;
 	
@@ -26,12 +30,27 @@ public class HelloBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		
+		this.maListe = new ArrayList<>();
+		this.maListe.add("Tata");
+		this.maListe.add("Toto");
+		this.maListe.add("Titi");
+		
+		
+		
 		System.out.println(ab.getMessage());
 		
 		
 		System.out.println("Bean créé");
 	}
 	
+	public List<String> getMaListe() {
+		return maListe;
+	}
+
+	public void setMaListe(List<String> maListe) {
+		this.maListe = maListe;
+	}
+
 	@PreDestroy
 	public void destroy() {
 		System.out.println("Bean détruite");
